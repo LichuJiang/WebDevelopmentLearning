@@ -1,0 +1,1 @@
+This repository is used to storage the practices while learning Web Development.
