@@ -16,7 +16,7 @@ app.post("/",function(req,res){
     var lastName=req.body.lName;
     var email=req.body.email;
     
-    console.log(firstName,lastName,email);
+    //console.log(firstName,lastName,email);
     var data={
         members:[
             {
@@ -35,9 +35,15 @@ app.post("/",function(req,res){
     
     const options={
         method:"POST",
-        auth:"lichu:397597c1aa550c52af4bbfbe42abc8b5-us18"
+        auth:"lichu:6fb628307a681309b0ac4c6821853f23-us18"
     }
     const request=https.request(url,options,function(response){
+        
+        if(response.statusCode==200){
+            res.send("Successfully subscribed!");
+        }else{
+            res.send("There is an error, please send it again!");
+        }
         response.on("data",function(data){
             console.log(JSON.parse(data));
         })
@@ -47,7 +53,7 @@ app.post("/",function(req,res){
     request.end();
 });
 
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
     console.log("Server is running on port 3000.");
 });
 
