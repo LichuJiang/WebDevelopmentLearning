@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect(,{useNewUrlParser:true});
+mongoose.connect(,{useNewUrlParser:true});//for credential
 
 const itemsSchema={
   name:String
